@@ -26,6 +26,7 @@ ActionController::Routing::Routes.draw do |map|
     page_mount.connect 'bookings/manage/*paths'
 
     page_mount.connect 'parties/*paths'
+    page_mount.connect 'reset_password/*paths'
     page_mount.connect 'documents/*paths'
 
     page_mount.connect 'booking-app-js/*paths'
