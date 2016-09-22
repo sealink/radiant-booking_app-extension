@@ -36,6 +36,7 @@ class PageMountController < SiteController
       send_file(proxy_response)
     else
       @title = proxy_response.headers[:x_title]
+      store_client_type_id_in_cms_session(proxy_response) if login_details_request?(request)
       render text:         proxy_response.body,
              content_type: proxy_response.content_type,
              status:       proxy_response.code,
@@ -48,6 +49,15 @@ class PageMountController < SiteController
   end
 
   private
+
+  def store_client_type_id_in_cms_session(proxy_response)
+    # Special Hack so CC can show exclusive products for clients
+    session[:client_type_id] = JSON.parse(proxy_response.body)['client_type_id']
+  end
+
+  def login_details_request?(request)
+    request.path == '/parties/login_header_details'
+  end
 
   def http_proxy(url)
     RequestProxy.call(request, url, params, session[:proxied_cookies])
