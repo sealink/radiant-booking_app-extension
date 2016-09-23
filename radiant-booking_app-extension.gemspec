@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "radiant-booking_app-extension"
-  spec.version       = '0.1.0'
+  spec.version       = '0.1.1'
   spec.authors       = ["Michael Noack"]
   spec.email         = ["support@travellink.com.au"]
   spec.description   = %q{Integrate booking app with radiant}
@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency 'radius'
-  spec.add_dependency 'rest-client' # '1.7.2' # what kis-cms uses, 1.8 is last ruby 1.9 compatible but breaks cookies, 2.0 requires ruby 2.0
+  spec.add_dependency 'rest-client', '1.7.2' # what kis-cms uses, 1.8 is last ruby 1.9 compatible but breaks cookies, 2.0 requires ruby 2.0
   spec.add_dependency 'radiant-layouts-extension' # radiant_layout
 
   spec.add_development_dependency "bundler", "~> 1.3"
