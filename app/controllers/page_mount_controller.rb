@@ -40,7 +40,7 @@ class PageMountController < SiteController
       render text:         proxy_response.body,
              content_type: proxy_response.content_type,
              status:       proxy_response.code,
-             layout:       true
+             layout:       (request.path != '/app_cells')
     end
   end
 
