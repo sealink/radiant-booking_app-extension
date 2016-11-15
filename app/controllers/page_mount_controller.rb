@@ -127,7 +127,7 @@ class PageMountController < SiteController
       headers[:content_disposition] || DEFAULT_CONTENT_DISPOSITION
     end
 
-    delegate :body, :content_type, :code, to: :response
+    delegate :body, :code, to: :response
 
     def headers
       @response.body.headers
