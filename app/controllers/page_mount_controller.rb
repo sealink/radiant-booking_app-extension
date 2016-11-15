@@ -98,15 +98,26 @@ class PageMountController < SiteController
       @response = response
     end
 
+    FILE_CONTENT_TYPES = %w(
+      application/octet-stream
+      application/javascript
+      text/plain # js.map
+      application/json
+    )
+
     def file?
-      headers.key?(:content_disposition) || headers[:content_type] == 'application/octet-stream'
+      headers.key?(:content_disposition) || FILE_CONTENT_TYPES.include?(content_type)
+    end
+
+    def content_type
+      headers[:content_type].split(';').first
     end
 
     def content_disposition
       headers[:content_disposition] || DEFAULT_CONTENT_DISPOSITION
     end
 
-    delegate :body, :content_type, :code, to: :response
+    delegate :body, :code, to: :response
 
     def headers
       @response.body.headers
