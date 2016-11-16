@@ -95,6 +95,7 @@ class PageMountController < SiteController
 
   def send_file(proxy_response)
     send_data proxy_response.body,
+              status:      proxy_response.code,
               type:        proxy_response.content_type,
               disposition: proxy_response.content_disposition
   end
