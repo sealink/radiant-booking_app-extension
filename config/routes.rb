@@ -20,7 +20,6 @@ ActionController::Routing::Routes.draw do |map|
 
     page_mount.connect 'cart/*paths'
 
-    page_mount.connect 'secure-pay'
     page_mount.connect 'secure-payment'
     page_mount.connect 'cart_activations/*paths'
     page_mount.connect 'bookings/manage/*paths'
