@@ -40,7 +40,7 @@ class PageMountController < SiteController
       render text:         proxy_response.body,
              content_type: proxy_response.content_type,
              status:       proxy_response.code,
-             layout:       true
+             layout:       (request.path != '/app_cells')
     end
   end
 
@@ -95,6 +95,7 @@ class PageMountController < SiteController
 
   def send_file(proxy_response)
     send_data proxy_response.body,
+              status:      proxy_response.code,
               type:        proxy_response.content_type,
               disposition: proxy_response.content_disposition
   end
@@ -127,7 +128,7 @@ class PageMountController < SiteController
       headers[:content_disposition] || DEFAULT_CONTENT_DISPOSITION
     end
 
-    delegate :body, :content_type, :code, to: :response
+    delegate :body, :code, to: :response
 
     def headers
       @response.body.headers
