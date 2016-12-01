@@ -51,11 +51,11 @@ class PageMountController < SiteController
 
   private
 
-  def store_client_type_id_in_cms_session(proxy_response, request)
+  def store_client_type_id_in_cms_session(response, request)
     # Special Hack so CC can show exclusive products for clients
     case request.path
     when '/parties/login.json'
-      json = JSON.parse(proxy_response.body)
+      json = JSON.parse(response.body)
       session[:client_id] = json['client_id']
       session[:client_type_id] = json['client_type_id']
       session[:client_type_is_agent] = json['client_type_is_agent']
