@@ -66,10 +66,6 @@ class PageMountController < SiteController
     end
   end
 
-  def login_details_request?(request)
-    request.path == '/parties/login_header_details'
-  end
-
   def http_proxy(url)
     RequestProxy.call(request, url, params, session[:proxied_cookies])
   end
