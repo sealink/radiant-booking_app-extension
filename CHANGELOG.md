@@ -5,6 +5,10 @@
 CHANGELOG](http://keepachangelog.com/).
 
 ## Unreleased
+### Changed
+- Hack for exclusive products fixed by storing additional details
+  (Requires CMS to use ajax login)
+
 ### Removed
 - [TT-938] Remove deprecated secure-pay url
 
