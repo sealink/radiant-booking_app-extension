@@ -6,7 +6,7 @@ CHANGELOG](http://keepachangelog.com/).
 
 ## Unreleased
 ### Changed
-- Hack for exclusive products fixed by storing additional details
+- [TT-1567] Hack for exclusive products fixed by storing additional details
   (Requires CMS to use ajax login)
 
 ### Removed
