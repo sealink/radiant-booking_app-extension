@@ -17,6 +17,7 @@ class PageMountController < SiteController
     # ... or determine if having blank cookies means "don't set anything buddy"
     session[:proxied_cookies] = response.cookies unless response.cookies.blank?
 
+    # Must be done before redirect (for logout)
     store_client_type_id_in_cms_session(response, request)
 
     if response.redirect?
