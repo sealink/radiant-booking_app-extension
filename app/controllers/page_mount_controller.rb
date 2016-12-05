@@ -17,6 +17,9 @@ class PageMountController < SiteController
     # ... or determine if having blank cookies means "don't set anything buddy"
     session[:proxied_cookies] = response.cookies unless response.cookies.blank?
 
+    # Must be done before redirect (for logout)
+    store_client_type_id_in_cms_session(response, request)
+
     if response.redirect?
       redirect_to response.redirect_location
       return
@@ -36,7 +39,6 @@ class PageMountController < SiteController
       send_file(proxy_response)
     else
       @title = proxy_response.headers[:x_title]
-      store_client_type_id_in_cms_session(proxy_response) if login_details_request?(request)
       render text:         proxy_response.body,
              content_type: proxy_response.content_type,
              status:       proxy_response.code,
@@ -50,13 +52,19 @@ class PageMountController < SiteController
 
   private
 
-  def store_client_type_id_in_cms_session(proxy_response)
+  def store_client_type_id_in_cms_session(response, request)
     # Special Hack so CC can show exclusive products for clients
-    session[:client_type_id] = JSON.parse(proxy_response.body)['client_type_id']
-  end
-
-  def login_details_request?(request)
-    request.path == '/parties/login_header_details'
+    case request.path
+    when '/parties/login.json'
+      json = JSON.parse(response.body)
+      session[:client_id] = json['client_id']
+      session[:client_type_id] = json['client_type_id']
+      session[:client_type_is_agent] = json['client_type_is_agent']
+    when '/parties/logout'
+      session[:client_id] = nil
+      session[:client_type_id] = nil
+      session[:client_type_is_agent] = nil
+    end
   end
 
   def http_proxy(url)
