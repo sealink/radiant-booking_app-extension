@@ -11,7 +11,7 @@ class PageMountController < SiteController
   # params[:paths]  => ["kangaroo-island", "ozone-12"]
   # params[:adults] => 1
   def proxy
-    response = http_proxy(booking_app_url + request.path)
+    response = http_proxy(ecom_engine_url + request.path)
 
     # TODO: Resolve so that response doesn't return blank for cookies on 500?
     # ... or determine if having blank cookies means "don't set anything buddy"
@@ -23,11 +23,11 @@ class PageMountController < SiteController
     end
 
     unless response.ok?
-      Rails.logger.error("Booking-app proxy failed. Response [#{response.code}] =>")
+      Rails.logger.error("Ecom-engine proxy failed. Response [#{response.code}] =>")
       Rails.logger.error(response.body)
       # TODO: Contact errbit? Can we improve this fail page...?
       #
-      # This is rendered in booking-app: 'shared/quicktravel_unavailable'
+      # This is rendered in ecom-engine: 'shared/quicktravel_unavailable'
       # Probably, it should be here!
     end
 
@@ -81,11 +81,11 @@ class PageMountController < SiteController
   class_attribute :calculator
 
   def calculator
-    @calculator ||= Radiant::Config['bookingapp.calculator'].constantize.new(request)
+    @calculator ||= Radiant::Config['ecomengine.calculator'].constantize.new(request)
   end
 
-  def booking_app_url
-    calculator.booking_app_url
+  def ecom_engine_url
+    calculator.ecom_engine_url
   end
 
   # TODO: Check if we can delete this...

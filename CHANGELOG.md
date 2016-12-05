@@ -5,6 +5,9 @@
 CHANGELOG](http://keepachangelog.com/).
 
 ## Unreleased
+- [TT-1583] Rename to radiant-ecom_engine-extension
+  (requires ecom-engine)
+
 ### Removed
 - [TT-938] Remove deprecated secure-pay url
 
