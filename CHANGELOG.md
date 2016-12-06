@@ -5,9 +5,12 @@
 CHANGELOG](http://keepachangelog.com/).
 
 ## Unreleased
+
 ### Changed
 - [TT-1567] Hack for exclusive products fixed by storing additional details
   (Requires CMS to use ajax login)
+- [TT-1583] Rename to radiant-ecom_engine-extension
+  (requires ecom-engine)
 
 ### Removed
 - [TT-938] Remove deprecated secure-pay url

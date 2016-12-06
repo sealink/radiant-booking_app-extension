@@ -1,11 +1,11 @@
 Gem::Specification.new do |spec|
-  spec.name          = "radiant-booking_app-extension"
+  spec.name          = "radiant-ecom_engine-extension"
   spec.version       = '0.1.1'
   spec.authors       = ["Michael Noack"]
   spec.email         = ["support@travellink.com.au"]
-  spec.description   = %q{Integrate booking app with radiant}
-  spec.summary       = %q{Integrate booking app with radiant}
-  spec.homepage      = 'http://github.com/sealink/radiant-booking_app-extension'
+  spec.description   = %q{Integrate ecom engine with radiant}
+  spec.summary       = %q{Integrate ecom engine with radiant}
+  spec.homepage      = 'http://github.com/sealink/radiant-ecom_engine-extension'
 
   spec.license       = "MIT"
 
