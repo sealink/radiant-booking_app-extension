@@ -6,6 +6,13 @@ CHANGELOG](http://keepachangelog.com/).
 
 ## Unreleased
 
+## 0.3.0
+
+### Added
+- [TT-1945] Add search routes
+
+## 0.2.0
+
 ### Changed
 - [TT-1567] Hack for exclusive products fixed by storing additional details
   (Requires CMS to use ajax login)
