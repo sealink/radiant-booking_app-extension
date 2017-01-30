@@ -1,8 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   # Page-mounted App
   map.with_options controller: 'page_mount', action: 'proxy' do |page_mount|
-    page_mount.connect 'search/accommodations'
-
     # These are CMS pages:
     # /accommodation/hotel-motel (for each type)
     # /accommodation/kangaroo-island-accommodation/ (for landing page)
@@ -15,6 +13,7 @@ ActionController::Routing::Routes.draw do |map|
 
     page_mount.connect 'transport/*paths'
     page_mount.connect 'tours/*paths'
+    page_mount.connect 'search/*paths'
 
     page_mount.connect 'app_cells/*paths'
 
