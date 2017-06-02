@@ -10,6 +10,7 @@ CHANGELOG](http://keepachangelog.com/).
 
 ### Added
 - [TT-1945] Add search routes
+- [DO-29] Add a tag for invalidating Javascript cache
 
 ## 0.2.0
 
