@@ -24,7 +24,10 @@ class EcomEngine::Version
   end
 
   def version_response
-    Net::HTTP.get_response URI.parse(version_url)
+    uri = URI.parse(version_url)
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = uri.scheme == 'https'
+    http.get uri.request_uri
   end
 
   def version_url

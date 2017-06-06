@@ -4,6 +4,11 @@
 +This changelog adheres to [Keep a
 CHANGELOG](http://keepachangelog.com/).
 
+## 0.3.1 Unreleased
+
+### Changed
+- [TT-2781] Address the issue with HTTPS
+
 ## 0.3.0
 
 ### Added
