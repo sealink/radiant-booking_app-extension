@@ -4,7 +4,7 @@
 +This changelog adheres to [Keep a
 CHANGELOG](http://keepachangelog.com/).
 
-## Unreleased
+## 0.3.0
 
 ### Added
 - [TT-1945] Add search routes
