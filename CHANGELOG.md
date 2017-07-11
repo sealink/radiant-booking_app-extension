@@ -4,6 +4,11 @@
 +This changelog adheres to [Keep a
 CHANGELOG](http://keepachangelog.com/).
 
+## 0.4.0
+
+### Added
+- [TT-2897] Add a tag to retrieve javascript bundles
+
 ## 0.3.1
 
 ### Changed
