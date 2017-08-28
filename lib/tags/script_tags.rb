@@ -12,6 +12,7 @@ module ScriptTags
   tag 'ee_bundle_tag' do |tag|
     bundle_url = PageMountCalculator.new(@request).ecom_engine_url + "/app_cells?name=header/#{tag.attr['name']}"
     uri = URI.parse(bundle_url)
+    fail ArgumentError, "web site host must contain http/https" unless %w(https http).include?(uri.scheme)
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = uri.scheme == 'https'
     response = http.get uri.request_uri
