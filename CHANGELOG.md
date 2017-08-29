@@ -4,6 +4,11 @@
 +This changelog adheres to [Keep a
 CHANGELOG](http://keepachangelog.com/).
 
+## Unreleased
+
+### Fixed
+- [TT-3116] Fix case where scheme (http/https) not in ecom engine host
+
 ## 0.4.0
 
 ### Added
