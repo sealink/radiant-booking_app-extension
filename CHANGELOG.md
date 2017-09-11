@@ -8,6 +8,8 @@ CHANGELOG](http://keepachangelog.com/).
 
 ### Fixed
 - [TT-3116] Fix case where scheme (http/https) not in ecom engine host
+- [ROT-44] Manually serialise the payload parameters so we get a format that
+  is compatible with rails (when using nested arrays)
 
 ## 0.4.0
 
