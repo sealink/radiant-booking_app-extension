@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "radiant-ecom_engine-extension"
-  spec.version       = '0.4.0'
+  spec.version       = '0.5.0'
   spec.authors       = ["Michael Noack"]
   spec.email         = ["support@travellink.com.au"]
   spec.description   = %q{Integrate ecom engine with radiant}
