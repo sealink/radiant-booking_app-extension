@@ -21,7 +21,7 @@ class RequestProxy
       cookies: @cookies,
       headers: headers_for_booking_app,
     }
-    options[:payload] = @data unless http_get?
+    options[:payload] = Rack::Utils.build_nested_query(@data) unless http_get?
 
     RestClient::Request.execute(options) do |response, _request, _result, &_block|
       WrappedResponse.new(response)
